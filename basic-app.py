@@ -1,12 +1,11 @@
 # Importing Necessary modules
 from fastapi import FastAPI
 import uvicorn
-# imports for the model
 from sklearn.datasets import load_iris
 from sklearn.naive_bayes import GaussianNB
 from pydantic import BaseModel
 
-# creating the BaseModel ,in pydantic 
+# creating the BaseModel ,in pydantic aka our Request Body
 class request_body(BaseModel):
     sepal_length : float
     sepal_width : float
@@ -27,7 +26,6 @@ Y = iris.target
 clf = GaussianNB()
 clf.fit(X,Y) 
  
-
 # ROUTING
 # Defining path operation for root endpoint
 @app.get('/')
